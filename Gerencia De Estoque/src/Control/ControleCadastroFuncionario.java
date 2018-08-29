@@ -6,14 +6,16 @@
 package Control;
 
 import Model.Funcionario;
+import java.util.ArrayList;
 
 /**
  *
  * @author Gustavo Santana
  */
 public class ControleCadastroFuncionario {
-     public void cadastroFuncionario(String nome, String cpf, String rg, String dataNascimento,
-             String telefone, String endereco,String cargo, String salario, String usuario, String senha){
+
+    public void cadastroFuncionario(String nome, String cpf, String rg, String dataNascimento,
+            String telefone, String endereco, String cargo, String salario, String usuario, String senha) {
         Funcionario funcionario = new Funcionario();
         funcionario.setNome(nome);
         funcionario.setCpf(cpf);
@@ -25,8 +27,14 @@ public class ControleCadastroFuncionario {
         funcionario.setSalario(salario);
         funcionario.setUsuario(usuario);
         funcionario.setSenha(senha);
-        
-        System.out.println(funcionario.getNome());
+
+        new BancoFuncionarios().adicionarFuncionario(funcionario);
     }
 
+    public void mostrarFuncionarios() {
+        ArrayList<Object> lista = new BancoFuncionarios().mostrarFuncionarios();
+        for (Object object : lista) {
+            System.out.println(((Funcionario) object).getNome());
+        }
+    }
 }

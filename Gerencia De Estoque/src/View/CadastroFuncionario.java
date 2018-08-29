@@ -76,6 +76,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         btFecharJanela.setText("Fechar");
+        btFecharJanela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFecharJanelaActionPerformed(evt);
+            }
+        });
 
         btSalvarFuncionario.setText("Salvar");
         btSalvarFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -225,6 +230,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             txtUsuario.getText(),
             txtSenha.getText());
     }//GEN-LAST:event_btSalvarFuncionarioActionPerformed
+
+    private void btFecharJanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharJanelaActionPerformed
+        controle.mostrarFuncionarios();
+    }//GEN-LAST:event_btFecharJanelaActionPerformed
 
     /**
      * @param args the command line arguments

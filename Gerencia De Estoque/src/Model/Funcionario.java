@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Gustavo Santana
  */
-public class Funcionario {
+public class Funcionario implements Serializable{
     String nome;
     String cpf;
     String rg;

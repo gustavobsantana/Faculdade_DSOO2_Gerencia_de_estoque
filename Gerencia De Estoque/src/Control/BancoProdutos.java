@@ -24,7 +24,20 @@ public class BancoProdutos {
         Empacotamento.gravarArquivoBinario(produtos, NOMEARQUIVO);
     }
     
-    public ArrayList<Object> mostrarProdutos(){
-        return Empacotamento.lerArquivoBinario(NOMEARQUIVO);
+    public ArrayList<Produto> mostrarProdutos(){
+        ArrayList<Object> listaObject = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
+        ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+        
+        for(Object lista: listaObject){
+            Produto produto = new Produto();
+            produto.setNome(((Produto)lista).getNome());
+            produto.setValorCompra(((Produto)lista).getValorCompra());
+            produto.setValorVenda(((Produto)lista).getValorVenda());
+            produto.setQuantidade(((Produto)lista).getQuantidade());
+            
+            listaProdutos.add(produto);
+        }
+        
+        return listaProdutos;
     }
 }

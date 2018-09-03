@@ -6,6 +6,7 @@
 package Control;
 
 import Model.Produto;
+import View.CadastroProdutos;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,12 @@ import java.util.ArrayList;
  * @author 02629290077
  */
 public class ControleCadastroProduto {
+    CadastroProdutos view;
+    
+    public void iniciarCadastroProduto(){
+        view = new CadastroProdutos(this);
+        view.setVisible(true);
+    }
 
     public void cadastroProduto(String nome, String valorCompra, String valorVenda, String quantidade) {
         Produto produto = new Produto();
@@ -26,10 +33,4 @@ public class ControleCadastroProduto {
         
     }
     
-    public void mostrarProdutos(){
-        ArrayList<Object> list = new BancoProdutos().mostrarProdutos();
-        for (Object object : list) {
-            System.out.println(((Produto)object).getNome());
-        }
-    }
 }

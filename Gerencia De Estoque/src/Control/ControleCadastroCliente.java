@@ -6,6 +6,7 @@
 package Control;
 
 import Model.Cliente;
+import View.CadastroCliente;
 import java.util.ArrayList;
 
 /**
@@ -13,8 +14,16 @@ import java.util.ArrayList;
  * @author Gustavo Santana
  */
 public class ControleCadastroCliente {
-    public void cadastroCliente(String nome, String cpf, String rg, String dataNascimento, String telefone, String endereco){
-        
+
+    CadastroCliente view;
+
+    public void iniciarCadastroCliente() {
+        view = new CadastroCliente(this);
+        view.setVisible(true);
+    }
+
+    public void cadastroCliente(String nome, String cpf, String rg, String dataNascimento, String telefone, String endereco) {
+
         Cliente cliente = new Cliente();
         cliente.setNome(nome);
         cliente.setCpf(cpf);
@@ -22,14 +31,8 @@ public class ControleCadastroCliente {
         cliente.setDataNasciemnto(dataNascimento);
         cliente.setTelefone(telefone);
         cliente.setEndereco(endereco);
-        
+
         new BancoClientes().AdicionarCliente(cliente);
     }
 
-    public void MostrarClientes() {
-        ArrayList<Object> lista = new BancoClientes().MostrarClientes();
-        for (Object object : lista) {
-            System.out.println(((Cliente)object).getNome());
-        }
-    }
 }

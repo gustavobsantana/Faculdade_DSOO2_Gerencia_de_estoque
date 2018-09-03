@@ -13,19 +13,34 @@ import java.util.ArrayList;
  *
  * @author Gustavo Santana
  */
-public class BancoClientes{
+public class BancoClientes {
+
     private String NOMEARQUIVO = "dadosClientes.dat";
-    
+
     ArrayList<Object> clientes = new ArrayList<Object>();
-    
-    public void AdicionarCliente(Cliente cliente){
+
+    public void AdicionarCliente(Cliente cliente) {
         clientes = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
         clientes.add(cliente);
         Empacotamento.gravarArquivoBinario(clientes, NOMEARQUIVO);
     }
-    
-    public ArrayList<Object> MostrarClientes(){
-        return Empacotamento.lerArquivoBinario(NOMEARQUIVO);
+
+    public ArrayList<Cliente> mostrarClientes() {
+        ArrayList<Object> listaObject = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
+        ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+
+        for (Object lista : listaObject) {
+            Cliente cliente = new Cliente();
+            cliente.setNome(((Cliente)lista).getNome());
+            cliente.setCpf(((Cliente)lista).getCpf());
+            cliente.setRg(((Cliente)lista).getRg());
+            cliente.setDataNasciemnto(((Cliente)lista).getDataNasciemnto());
+            cliente.setTelefone(((Cliente)lista).getTelefone());
+            cliente.setEndereco(((Cliente)lista).getEndereco());
+            listaClientes.add(cliente);
+        }
+
+        return listaClientes;
     }
-    
+
 }

@@ -6,6 +6,7 @@
 package Control;
 
 import Model.Funcionario;
+import View.CadastroFuncionario;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,13 @@ import java.util.ArrayList;
  * @author Gustavo Santana
  */
 public class ControleCadastroFuncionario {
+    
+    CadastroFuncionario view;
+    
+    public void iniciarCadastroFuncionario(){
+        view = new CadastroFuncionario(this);
+        view.setVisible(true);
+    }
 
     public void cadastroFuncionario(String nome, String cpf, String rg, String dataNascimento,
             String telefone, String endereco, String cargo, String salario, String usuario, String senha) {
@@ -31,10 +39,5 @@ public class ControleCadastroFuncionario {
         new BancoFuncionarios().adicionarFuncionario(funcionario);
     }
 
-    public void mostrarFuncionarios() {
-        ArrayList<Object> lista = new BancoFuncionarios().mostrarFuncionarios();
-        for (Object object : lista) {
-            System.out.println(((Funcionario) object).getNome());
-        }
-    }
+
 }

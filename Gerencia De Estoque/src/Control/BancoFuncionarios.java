@@ -46,4 +46,11 @@ public class BancoFuncionarios {
 
         return listaFuncionarios;
     }
+    
+    public void editarFuncionario(ArrayList<Funcionario> _funcionarios){
+        funcionarios = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
+        funcionarios.clear();
+        funcionarios.addAll(_funcionarios);
+        Empacotamento.gravarArquivoBinario(funcionarios, NOMEARQUIVO);
+    }
 }

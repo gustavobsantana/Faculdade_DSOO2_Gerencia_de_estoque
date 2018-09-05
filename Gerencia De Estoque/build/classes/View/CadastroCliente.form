@@ -90,6 +90,8 @@
                                   <Component id="txtNome" min="-2" pref="339" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btSalvarEdicao" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btSalvarCliente" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btFecharJanela" min="-2" max="-2" attributes="0"/>
@@ -132,6 +134,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btFecharJanela" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btSalvarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btSalvarEdicao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -198,6 +201,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarClienteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btSalvarEdicao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Salvar Edicao"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarEdicaoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

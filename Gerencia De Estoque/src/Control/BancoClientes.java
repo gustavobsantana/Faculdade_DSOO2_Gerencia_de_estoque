@@ -42,5 +42,12 @@ public class BancoClientes {
 
         return listaClientes;
     }
+    
+    public void editarCliente(ArrayList<Cliente> _clientes){
+        clientes = Empacotamento.lerArquivoBinario(NOMEARQUIVO);
+        clientes.clear();
+        clientes.addAll(_clientes);
+        Empacotamento.gravarArquivoBinario(clientes, NOMEARQUIVO);
+    }
 
 }

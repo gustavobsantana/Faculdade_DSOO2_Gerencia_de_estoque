@@ -6,6 +6,8 @@
 package View;
 
 import Control.ControleCadastroFuncionario;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -53,6 +55,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         txtSalario = new javax.swing.JTextField();
         txtUsuario = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
+        btSalvarEdicao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -99,6 +102,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         jLabel10.setText("Senha:");
 
+        btSalvarEdicao.setText("Salvar Edição");
+        btSalvarEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarEdicaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -127,7 +137,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtTelefone))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 250, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btSalvarEdicao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSalvarFuncionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btFecharJanela))
@@ -154,7 +166,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -198,7 +210,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btFecharJanela)
-                    .addComponent(btSalvarFuncionario))
+                    .addComponent(btSalvarFuncionario)
+                    .addComponent(btSalvarEdicao))
                 .addContainerGap())
         );
 
@@ -235,8 +248,21 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarFuncionarioActionPerformed
 
     private void btFecharJanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharJanelaActionPerformed
-        
+        controle.fechar();
     }//GEN-LAST:event_btFecharJanelaActionPerformed
+
+    private void btSalvarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarEdicaoActionPerformed
+        controle.salvarEdicao(txtNome.getText(),
+            txtCpf.getText(),
+            txtRg.getText(),
+            txtDataNascimento.getText(),
+            txtTelefone.getText(),
+            txtEndereco.getText(),
+            txtCargo.getText(),
+            txtSalario.getText(),
+            txtUsuario.getText(),
+            txtSenha.getText());
+    }//GEN-LAST:event_btSalvarEdicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,8 +299,131 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 //        });
 //    }
 
+    public JTextField getTxtCargo() {
+        return txtCargo;
+    }
+
+    public void setTxtCargo(JTextField txtCargo) {
+        this.txtCargo = txtCargo;
+    }
+
+    public JTextField getTxtCpf() {
+        return txtCpf;
+    }
+
+    public void setTxtCpf(JTextField txtCpf) {
+        this.txtCpf = txtCpf;
+    }
+
+    public JTextField getTxtDataNascimento() {
+        return txtDataNascimento;
+    }
+
+    public void setTxtDataNascimento(JTextField txtDataNascimento) {
+        this.txtDataNascimento = txtDataNascimento;
+    }
+
+    public JTextField getTxtEndereco() {
+        return txtEndereco;
+    }
+
+    public void setTxtEndereco(JTextField txtEndereco) {
+        this.txtEndereco = txtEndereco;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextField getTxtRg() {
+        return txtRg;
+    }
+
+    public void setTxtRg(JTextField txtRg) {
+        this.txtRg = txtRg;
+    }
+
+    public JTextField getTxtSalario() {
+        return txtSalario;
+    }
+
+    public void setTxtSalario(JTextField txtSalario) {
+        this.txtSalario = txtSalario;
+    }
+
+    public JTextField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public void setTxtSenha(JTextField txtSenha) {
+        this.txtSenha = txtSenha;
+    }
+
+    public JTextField getTxtTelefone() {
+        return txtTelefone;
+    }
+
+    public void setTxtTelefone(JTextField txtTelefone) {
+        this.txtTelefone = txtTelefone;
+    }
+
+    public JTextField getTxtUsuario() {
+        return txtUsuario;
+    }
+
+    /**
+     * @param args the command line arguments
+    //     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new CadastroFuncionario().setVisible(true);
+//            }
+//        });
+//    }
+    public void setTxtUsuario(JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
+
+    public JButton getBtSalvarEdicao() {
+        return btSalvarEdicao;
+    }
+
+    public JButton getBtSalvarFuncionario() {
+        return btSalvarFuncionario;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btFecharJanela;
+    private javax.swing.JButton btSalvarEdicao;
     private javax.swing.JButton btSalvarFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

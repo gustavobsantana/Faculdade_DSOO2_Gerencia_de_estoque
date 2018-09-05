@@ -6,6 +6,8 @@
 package View;
 
 import Control.ControleCadastroCliente;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -46,6 +48,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtEndereco = new javax.swing.JTextField();
         btFecharJanela = new javax.swing.JButton();
         btSalvarCliente = new javax.swing.JButton();
+        btSalvarEdicao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -81,6 +84,13 @@ public class CadastroCliente extends javax.swing.JFrame {
         btSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSalvarClienteActionPerformed(evt);
+            }
+        });
+
+        btSalvarEdicao.setText("Salvar Edicao");
+        btSalvarEdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarEdicaoActionPerformed(evt);
             }
         });
 
@@ -123,6 +133,8 @@ public class CadastroCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btSalvarEdicao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btSalvarCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btFecharJanela)))))
@@ -154,7 +166,8 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btFecharJanela)
-                    .addComponent(btSalvarCliente))
+                    .addComponent(btSalvarCliente)
+                    .addComponent(btSalvarEdicao))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -187,8 +200,17 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarClienteActionPerformed
 
     private void btFecharJanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharJanelaActionPerformed
-
+           controle.fechar();
     }//GEN-LAST:event_btFecharJanelaActionPerformed
+
+    private void btSalvarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarEdicaoActionPerformed
+           controle.salvarEdicao(txtNome.getText(),
+                txtCpf.getText(),
+                txtRg.getText(),
+                txtDataNascimento.getText(),
+                txtTelefone.getText(),
+                txtEndereco.getText());
+    }//GEN-LAST:event_btSalvarEdicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,9 +247,107 @@ public class CadastroCliente extends javax.swing.JFrame {
 //        });
 //    }
 
+    public JButton getBtSalvarCliente() {
+        return btSalvarCliente;
+    }
+
+    public void setBtSalvarCliente(JButton btSalvarCliente) {
+        this.btSalvarCliente = btSalvarCliente;
+    }
+
+    public JButton getBtSalvarEdicao() {
+        return btSalvarEdicao;
+    }
+
+    public void setBtSalvarEdicao(JButton btSalvarEdicao) {
+        this.btSalvarEdicao = btSalvarEdicao;
+    }
+
+    public JTextField getTxtCpf() {
+        return txtCpf;
+    }
+
+    public void setTxtCpf(JTextField txtCpf) {
+        this.txtCpf = txtCpf;
+    }
+
+    public JTextField getTxtDataNascimento() {
+        return txtDataNascimento;
+    }
+
+    public void setTxtDataNascimento(JTextField txtDataNascimento) {
+        this.txtDataNascimento = txtDataNascimento;
+    }
+
+    public JTextField getTxtEndereco() {
+        return txtEndereco;
+    }
+
+    public void setTxtEndereco(JTextField txtEndereco) {
+        this.txtEndereco = txtEndereco;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextField getTxtRg() {
+        return txtRg;
+    }
+
+    public void setTxtRg(JTextField txtRg) {
+        this.txtRg = txtRg;
+    }
+
+    public JTextField getTxtTelefone() {
+        return txtTelefone;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(CadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new CadastroCliente().setVisible(true);
+//            }
+//        });
+//    }
+    public void setTxtTelefone(JTextField txtTelefone) {
+        this.txtTelefone = txtTelefone;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btFecharJanela;
     private javax.swing.JButton btSalvarCliente;
+    private javax.swing.JButton btSalvarEdicao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

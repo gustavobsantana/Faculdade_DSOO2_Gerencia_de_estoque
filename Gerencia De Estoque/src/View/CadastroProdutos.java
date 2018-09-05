@@ -152,6 +152,7 @@ public class CadastroProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
+        controle.fechar();
     }//GEN-LAST:event_btFecharActionPerformed
 
     /**

@@ -26,8 +26,11 @@ public class ControleLista {
     DefaultListModel model;
     Lista view;
     JList lista;
+    String tipoLista;
+    int i;
 
     public void iniciarListaFuncionarios() {
+        tipoLista = "funcionario";
         iniciarLista();
         ArrayList<Funcionario> funcionarios = new BancoFuncionarios().mostrarFuncionarios();
         for (Funcionario funcionario : funcionarios) {
@@ -37,7 +40,7 @@ public class ControleLista {
         lista.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int i = lista.getSelectedIndex();
+                i = lista.getSelectedIndex();
                 view.getTxtNome().setText(funcionarios.get(i).getNome());
                 view.getTxtCpf().setText(funcionarios.get(i).getCpf());
             }
@@ -48,6 +51,7 @@ public class ControleLista {
     }
 
     public void iniciarListaClientes() {
+        tipoLista = "cliente";
         iniciarLista();
         ArrayList<Cliente> clientes = new BancoClientes().mostrarClientes();
         for (Cliente cliente : clientes) {
@@ -57,7 +61,7 @@ public class ControleLista {
         lista.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int i = lista.getSelectedIndex();
+                i = lista.getSelectedIndex();
                 view.getTxtNome().setText(clientes.get(i).getNome());
                 view.getTxtCpf().setText(clientes.get(i).getCpf());
             }
@@ -68,6 +72,7 @@ public class ControleLista {
     }
 
     public void iniciarListaProdutos() {
+        tipoLista = "produto";
         iniciarLista();
         view.getjLabel1().setText("Produto: ");
         view.getjLabel2().setText("Quantidade: ");
@@ -79,7 +84,7 @@ public class ControleLista {
         lista.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int i = lista.getSelectedIndex();
+                i = lista.getSelectedIndex();
                 view.getTxtNome().setText(produtos.get(i).getNome());
 
                 view.getTxtCpf().setText(produtos.get(i).getQuantidade() + "");
@@ -90,10 +95,19 @@ public class ControleLista {
     }
 
     public void iniciarLista() {
-        view = new Lista();
+        view = new Lista(this);
         lista = view.getLista();
         model = new DefaultListModel();
         lista.setModel(model);
         model.clear();
+    }
+    
+    public void editar(){
+        if(tipoLista.equals("funcionario")){
+            new ControleCadastroFuncionario().editar(i);
+        }
+        if(tipoLista.equals("cliente")){
+            new ControleCadastroCliente().editar(i);
+        }
     }
 }

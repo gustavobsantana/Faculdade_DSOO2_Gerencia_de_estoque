@@ -77,7 +77,9 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="250" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btSalvarEdicao" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btSalvarFuncionario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btFecharJanela" min="-2" max="-2" attributes="0"/>
@@ -111,7 +113,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                           <Component id="txtNome" min="-2" pref="339" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -167,6 +169,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btFecharJanela" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btSalvarFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btSalvarEdicao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -262,6 +265,14 @@
         <Component class="javax.swing.JTextField" name="txtUsuario">
         </Component>
         <Component class="javax.swing.JTextField" name="txtSenha">
+        </Component>
+        <Component class="javax.swing.JButton" name="btSalvarEdicao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Salvar Edi&#xe7;&#xe3;o"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarEdicaoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -8,6 +8,7 @@ package Control;
 import Model.Produto;
 import View.CadastroProdutos;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,7 +31,14 @@ public class ControleCadastroProduto {
         produto.setQuantidade(Integer.parseInt(quantidade));
         
         new BancoProdutos().adicionarProduto(produto);
+        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+        view.dispose();
+        iniciarCadastroProduto();
         
+    }
+    
+    public void fechar(){
+        view.dispose();
     }
     
 }
